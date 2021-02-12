@@ -57,7 +57,8 @@ body {
   align-items: center;
 }
 
-.js-todoList input {
+.js-todoList input,
+.js-greeting input {
   width: 40%;
   height: 100%;
   border: none;
@@ -70,7 +71,8 @@ body {
   text-align: center;
 }
 
-.js-todoList input::placeholder {
+.js-todoList input::placeholder,
+.js-greeting input::placeholder {
   color: white;
   font-size: 36px;
   text-shadow: 4px 4px 2px rgba(150, 150, 150, 1);

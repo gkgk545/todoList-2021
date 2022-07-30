@@ -7,16 +7,12 @@ const CURRENTLIST = "currentList";
 let toDos = [];
 
 function deleteList() {
-  const target_li = event.target.parentNode; // targetbutton클릭한(target) delBtn의 상위 요소 li(parentNode)
+  const target_li = event.target.parentNode; // targetbutton을 클릭한(target) delBtn의 상위 요소 li(parentNode)
   ul.removeChild(target_li);
   const cleanList = toDos.filter((toDo) => {
     return toDo.id !== parseInt(target_li.id);
   });
   toDos = cleanList;
-  saveList();
-}
-
-function saveList() {
   localStorage.setItem(CURRENTLIST, JSON.stringify(toDos));
 }
 
@@ -24,15 +20,12 @@ function paintList(text) {
   const li = document.createElement("li");
   const newId = toDos.length + 1;
   const span = document.createElement("span");
-  const delBtn = document.createElement("button");
   span.innerText = text;
-  delBtn.innerText = "❌";
-  delBtn.addEventListener("click", deleteList);
+  span.addEventListener("click", deleteList);
   li.id = newId;
-  if (li.id > 8) {
+  if (li.id > 6) {
     alert("Too much work to do is hard to concentrate.");
   } else {
-    li.appendChild(delBtn);
     li.appendChild(span);
     ul.appendChild(li);
     const toDoObj = {
@@ -40,7 +33,7 @@ function paintList(text) {
       id: newId,
     };
     toDos.push(toDoObj);
-    saveList();
+    localStorage.setItem(CURRENTLIST, JSON.stringify(toDos));
   }
 }
 

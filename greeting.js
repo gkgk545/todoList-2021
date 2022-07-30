@@ -7,7 +7,7 @@ const CURRENTUSER = "currentUser";
 function paintUser(text) {
   jsGreeting_input.classList.add("hidden");
   jsGreeting_h4.classList.remove("hidden");
-  jsGreeting.innerText = `Have a Fabulous day 😝, "${text}"`;
+  jsGreeting.innerText = `Have a Fabulous day, "${text}"`;
 }
 
 function saveUser(text) {
